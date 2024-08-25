@@ -9,10 +9,10 @@ int main(){
     cout<<"/////////////////////////////////////////////"<<endl;
 
     cout<<"char: "<<sizeof(char)<<endl;
-    cout<<"char: "<<sizeof(float)<<endl;
-    cout<<"char: "<<sizeof(double)<<endl;
-    cout<<"char: "<<sizeof(long double)<<endl;
-    cout<<"char: "<<sizeof(bool)<<endl;
+    cout<<"float: "<<sizeof(float)<<endl;
+    cout<<"double: "<<sizeof(double)<<endl;
+    cout<<"long double: "<<sizeof(long double)<<endl;
+    cout<<"bool: "<<sizeof(bool)<<endl;
 
     cout<<"signed short int: "<<sizeof(signed short int)<<endl;    
     cout<<"signed int: "<<sizeof(signed int)<<endl;    
@@ -27,7 +27,7 @@ int main(){
     cout<<"unsigned long long int: "<<sizeof(unsigned long long int)<<endl;  
 
     system("pause");
-    
+
     
     cout<<"/////////////////////////////////////////////"<<endl;
 
