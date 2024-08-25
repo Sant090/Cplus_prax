@@ -8,7 +8,12 @@ int main(){
     cout<<"Tamaño normal de los tipos de datos en Bytes"<<endl;
     cout<<"/////////////////////////////////////////////"<<endl;
 
-    cout<<"char: "<<sizeof(char)<<endl;    
+    cout<<"char: "<<sizeof(char)<<endl;
+    cout<<"char: "<<sizeof(float)<<endl;
+    cout<<"char: "<<sizeof(double)<<endl;
+    cout<<"char: "<<sizeof(long double)<<endl;
+    cout<<"char: "<<sizeof(bool)<<endl;
+
     cout<<"signed short int: "<<sizeof(signed short int)<<endl;    
     cout<<"signed int: "<<sizeof(signed int)<<endl;    
     cout<<"signed long int: "<<sizeof(signed long int)<<endl;   
@@ -23,12 +28,25 @@ int main(){
 
     system("pause");
     
+    
     cout<<"/////////////////////////////////////////////"<<endl;
 
     cout<<"Valor Maximo y el Minimo "<<endl;
     cout<<"Char"<<endl;
     cout<<"Minimo:"<< CHAR_MIN<<endl;
     cout<<"Maximo:"<< CHAR_MAX<<endl;
+
+    cout<<"Float"<<endl;
+    cout<<"Minimo:"<< FLT_MAX<<endl;
+    cout<<"Maximo:"<< FLT_MAX<<endl;  
+
+    cout<<"Double"<<endl;
+    cout<<"Minimo:"<< DBL_MIN<<endl;
+    cout<<"Maximo:"<< DBL_MAX<<endl;
+
+    cout<<"long Double"<<endl;
+    cout<<"Minimo:"<< LDBL_MIN<<endl;
+    cout<<"Maximo:"<< LDBL_MAX<<endl;
 
     cout<<"Signed short int "<<endl;
     cout<<"Minimo:"<< SHRT_MIN<<endl;
