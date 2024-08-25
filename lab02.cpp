@@ -1,5 +1,7 @@
 #include <iostream>
 #include <climits>
+#include <cfloat>
+
 using namespace std;
 
 
@@ -37,16 +39,16 @@ int main(){
     cout<<"Maximo:"<< CHAR_MAX<<endl;
 
     cout<<"Float"<<endl;
-    cout<<"Minimo:"<< FLT_MAX<<endl;
-    cout<<"Maximo:"<< FLT_MAX<<endl;  
+    cout<<"Minimo:"<< FLT_MAX <<endl;
+    cout<<"Maximo:"<< FLT_MAX <<endl;  
 
     cout<<"Double"<<endl;
     cout<<"Minimo:"<< DBL_MIN<<endl;
     cout<<"Maximo:"<< DBL_MAX<<endl;
 
     cout<<"long Double"<<endl;
-    cout<<"Minimo:"<< LDBL_MIN<<endl;
-    cout<<"Maximo:"<< LDBL_MAX<<endl;
+    cout<<"Minimo:"<< LDBL_MIN <<endl;
+    cout<<"Maximo:"<< LDBL_MAX <<endl;
 
     cout<<"Signed short int "<<endl;
     cout<<"Minimo:"<< SHRT_MIN<<endl;
