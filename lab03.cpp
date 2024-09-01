@@ -39,12 +39,10 @@ int main() {
                     }
                 }
                 cout<<"\n";
-                system("pause");
                 break;
 
             case 2:
-
-                cout << "You have this data:\n";
+                cout << "\n"<<cp<<cp<<"\nYou have this data:\n";
                 for (int c = 0; c < numCity; c++) {
                     cout << "\nCity #" << c+1 << endl;
                     for (int d = 0; d < numDay; d++) {
@@ -52,23 +50,59 @@ int main() {
                     }
                 }
 
-                cout << "Which city do you want to delete data from?\n";
+                cout <<"\n"<<cp<<cp<< "\nWhich city do you want to delete data from?\nYour select: ";
                 int tempCity;
                 cin >> tempCity;
                 
 
-                cout << "Data for City #" << (tempCity) << ":\n";
+                cout << "\nData for City #" << (tempCity) << ":\n";
                 for (int e = 0; e < numDay; e++) {
                     cout << "Day #" << e+1 << ": " << temperaturas[(tempCity-1)][e] << endl;
                 }
 
-                cout << "Which day do you want to delete data from?\n";
+                cout <<"\n"<<cp<<cp<< "\nWhich day do you want to delete data from?Your select: ";
                 int tempDay;
                 cin >> tempDay;
                                     
                 temperaturas[tempCity-1][tempDay-1] = 0;
 
-                cout << "You have this data now:\n";
+                cout << "\n"<<cp<<cp<<"\nYou have this data now:\n";
+                for (int c = 0; c < numCity; c++) {
+                    cout << "\nCity #" << c+1 << endl;
+                    for (int d = 0; d < numDay; d++) {
+                        cout << "Day #" << d+1 << ": " << temperaturas[c][d] << endl;
+                    }
+                }
+
+                break;
+            case 3:
+                cout << "\n"<<cp<<cp<<"\nYou have this data:\n";
+                for (int c = 0; c < numCity; c++) {
+                    cout << "\nCity #" << c+1 << endl;
+                    for (int d = 0; d < numDay; d++) {
+                        cout << "Day #" << d+1 << ": " << temperaturas[c][d] << endl;
+                    }
+                }
+
+                cout <<"\n"<<cp<<cp<< "\nWhich city do you want to modify data from?\nYour select: ";
+                cin >> tempCity;
+                
+
+                cout << "\nData for City #" << (tempCity) << ":\n";
+                for (int e = 0; e < numDay; e++) {
+                    cout << "Day #" << e+1 << ": " << temperaturas[(tempCity-1)][e] << endl;
+                }
+
+                cout <<"\n"<<cp<<cp<< "\nWhich day do you want to change data from?\nYour select: ";
+                cin >> tempDay;
+                                    
+                cout<<"\nData select: "<<temperaturas[tempCity-1][tempDay-1]<<"\nEnter the value for which you want to change: ";
+                int tempSelection;
+                cin>> tempSelection;
+
+                temperaturas[tempCity-1][tempDay-1]=tempSelection;
+
+                cout << "\n"<<cp<<cp<<"\nYou have this data now:\n";
                 for (int c = 0; c < numCity; c++) {
                     cout << "\nCity #" << c+1 << endl;
                     for (int d = 0; d < numDay; d++) {
