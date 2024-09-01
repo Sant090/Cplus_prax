@@ -96,7 +96,7 @@ int main() {
                 cout <<"\n"<<cp<<cp<< "\nWhich day do you want to change data from?\nYour select: ";
                 cin >> tempDay;
                                     
-                cout<<"\nData select: "<<temperaturas[tempCity-1][tempDay-1]<<"\nEnter the value for which you want to change: ";
+                cout<<"\nData of day select: "<<temperaturas[tempCity-1][tempDay-1]<<"\nEnter the value for which you want to change: ";
                 int tempSelection;
                 cin>> tempSelection;
 
@@ -110,6 +110,11 @@ int main() {
                     }
                 }
 
+                break;
+
+            case 4:
+            case 5:
+                cout<<"the option is not available";
                 break;
             case 6:
                 stateProgram = false;
