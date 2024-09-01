@@ -43,38 +43,6 @@ int main(){
     system("pause");
     return 0;
     */
-
-    int numCity, numDay;
-    vector<vector<float>> temperaturas;
-
-    cout << "Set the number of cities: ";
-    cin >> numCity;
-    cout << "Set the number of days: ";
-    cin >> numDay;
-    temperaturas.resize(numCity, vector<float>(numDay));
-
-    for (int i = 0; i < numCity; i++) {
-        for (int j = 0; j < numDay; j++) {
-            cout << "Add the value of day #" << j + 1 << " for city #" << i + 1 << ": ";
-            cin >> temperaturas.at(i,j);
-        }
-    }
-    system("pau")
-    cout<<"You have this data:";
-
-    for (int k = 0; k < numCity; k++)
-    {
-        cout<<"\nCity #"<<k+1<<endl;
-    }
-
-    cout<<"What city its a day that you want delate date:\n";
-
-    int tempCity;
-    cin>>tempCity;
-    
-    for (int x = 0; x < numDay; x++) 
-    {
-        cout<<"Day #"<<x+1<<": "<<temperaturas[tempCity][x]<<endl;
-    }
-
+   if   
+   cout<<""
 }
