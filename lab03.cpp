@@ -6,22 +6,22 @@ using namespace std;
 
 
 int main() {
-    bool stateProgram = true;
     int numCity, numDay;
     vector<vector<float>> temperaturas;
     string cp = "//////////////////////";
 
-    while (stateProgram) {
+    do{
         cout <<"\n"<<cp<<"Menu of Options"<<cp<<"\n";
         cout << "What option do you need?\n";
         cout << "1. Add data.\n2. Delete data.\n3. Modify data.\n4. Generate reports.\n5. Calculate statistics.\n6. Exit.\nYour select: ";
         int optionMenu;
         cin >> optionMenu;
-        string confirm;
+        int confirm;
         vector <float> tempVector;
 
         switch (optionMenu) {
             case 1:
+
                 float z;
 
                 cout <<"\n"<<cp<<"Add data"<<cp<<"\nSet the number of cities: ";    
@@ -51,14 +51,19 @@ int main() {
                 break;
             //case 1016714929:
             case 2:
+
                 cout << "\n"<<cp<<cp<<"\nYou have this data:\n";
                 for (int c = 0; c < temperaturas.size(); c++) {
                     cout << "\nCity #" << c+1 << endl;
-                    for (int d = 0; d < temperaturas[c].size(); d++) 
+                    for (int d = 0; d <= temperaturas[c].size(); d++) 
                     {
+                        if (temperaturas[c][d]<0)
+                        {
+                            break;
+                        }
                         if (temperaturas[c].empty())
                         {
-                            cout<<"this city, not have data avaliuble";
+                            cout<<"this city, not have data avaliuble\n";
                             break;
                         }
                         cout << "Day #" << d+1 << ": " << temperaturas[c][d] << endl;
@@ -69,7 +74,7 @@ int main() {
                 int tempCity;
                 cin >> tempCity;
         
-                temperaturas[tempCity-1].clear();
+                temperaturas.erase(temperaturas.begin()+tempCity-1);
 
                 cout << "\n"<<cp<<cp<<"\nYou have this data now:\n";
                 for (int c = 0; c < temperaturas.size(); c++) {
@@ -83,9 +88,9 @@ int main() {
             case 3:
                 int tempDay;
                 cout << "\n"<<cp<<cp<<"\nYou have this data:\n";
-                for (int c = 0; c < numCity; c++) {
+                for (int c = 0; c < temperaturas.size(); c++) {
                     cout << "\nCity #" << c+1 << endl;
-                    for (int d = 0; d < numDay; d++) {
+                    for (int d = 0; d < temperaturas[c].size(); d++) {
                         cout << "Day #" << d+1 << ": " << temperaturas[c][d] << endl;
                     }
                 }
@@ -109,27 +114,49 @@ int main() {
                 temperaturas[tempCity-1][tempDay-1]=tempSelection;
 
                 cout << "\n"<<cp<<cp<<"\nYou have this data now:\n";
-                for (int f = 0; f < numCity; f++) {
+                for (int f = 0; f < temperaturas.size(); f++) {
                     cout << "\nCity #" << f+1 << endl;
-                    for (int g = 0; g < numDay; g++) {
+                    for (int g = 0; g < temperaturas[f].size(); g++) {
                         cout << "Day #" << g+1 << ": " << temperaturas[f][g] << endl;
                     }
                 }
 
                 break;
             case 4:
+                cout << "\n"<<cp<<"Generate reports"<<cp<<"\n";
+                cout << "Select report type:\n";
+                cout << "1. Show statistics for each city and day\n";
+                cin >> reportOption;
 
+                if (reportOption == 1) {
+                    for (int city = 0; city < temperaturas.size(); ++city) {
+                        cout << "\nCity #" << city + 1 << endl;
+                        for (int day = 0; day < temperaturas[city].size(); ++day) {
+                            float temp = temperaturas[city][day];
+                            // Aquí puedes usar algoritmos de la STL o funciones propias para calcular max, min y promedio
+                            // Por ejemplo, usando accumulate para el promedio:
+                            float sum = std::accumulate(temperaturas[city].begin(), temperaturas[city].end(), 0.0);
+                            float average = sum / temperaturas[city].size();
+
+                            cout << "Day #" << day + 1 << ":" << endl;
+                            cout << "  Max: " << *max_element(temperaturas[city].begin(), temperaturas[city].end()) << endl;
+                            cout << "  Min: " << *min_element(temperaturas[city].begin(), temperaturas[city].end()) << endl;
+                            cout << "  Average: " << average << endl;
+                        }
+                    }
+                }
+                break;
             case 5:
                 cout<<"the option is not available";
                 break;
             case 6:
-                stateProgram = false;
+                return 0;
                 break;
             default:
                 cout << "\nThe option you selected is not in the menu\n";
                 break;
         }
     }
-
+    while (true);
     return 0;
 }

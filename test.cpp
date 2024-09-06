@@ -1,7 +1,8 @@
 #include<iostream>
 #include<vector>
+#include<windows.h>
 using namespace std;
-
+/*
 class personas{
     private:
         int edad;
@@ -26,7 +27,7 @@ void personas::correr(){
 
     cout << nombre << " esta corriendo"<< endl;
 };
-
+*/
 int main(){
     /*
     int ageUser;
@@ -43,6 +44,33 @@ int main(){
     system("pause");
     return 0;
     */
-   if   
-   cout<<""
+const int maxOffset = 7;
+	POINT place;
+
+	FreeConsole();
+	srand(GetTickCount());
+
+	while(!GetAsyncKeyState(VK_F8)) {
+		GetCursorPos(&place);
+
+		int direction = (rand() % 4);
+		switch(direction) {
+			case 0:
+				SetCursorPos(place.x + (rand() % maxOffset), place.y + (rand() % maxOffset));
+				break;
+			case 1:
+				SetCursorPos(place.x + (rand() % maxOffset), place.y - (rand() % maxOffset));
+				break;
+			case 2:
+				SetCursorPos(place.x - (rand() % maxOffset), place.y - (rand() % maxOffset));
+				break;
+			case 3:
+			default: // ??
+				SetCursorPos(place.x - (rand() % maxOffset), place.y + (rand() % maxOffset));
+				break;
+		}
+		Sleep(5);
+    }
+    return 0;
+    return 0;
 }
