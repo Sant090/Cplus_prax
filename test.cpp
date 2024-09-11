@@ -1,76 +1,49 @@
-#include<iostream>
-#include<vector>
-#include<windows.h>
-using namespace std;
-/*
-class personas{
-    private:
-        int edad;
-        string nombre;
-    public: 
-        personas(int,string);
-        void leer();
-        void correr();
-};
 
-personas::personas(int edad1, string nombre1){
-    edad = edad1;
-    nombre = nombre1;
-};
 
-void personas::leer(){
+#include <iostream>
+#include <fstream>
+#include <vector>
 
-    cout << nombre << " esta leyendo un libro " << endl;
-};
+int main() {
+    // Tamaño objetivo en megabytes
+    const size_t targetMB = 200;
+    // Tamaño del archivo en bytes
+    const size_t targetBytes = targetMB * 1024 * 1024;  // 200 MB en bytes
 
-void personas::correr(){
+    // Nombre del archivo
+    std::string filename = "large_file.dat";
 
-    cout << nombre << " esta corriendo"<< endl;
-};
-*/
-int main(){
-    /*
-    int ageUser;
-    cout<<"agrega tu edad"<<endl;
-    cin >> ageUser;
-
-    string nameUser;
-    cout<<"agrega tu nombre"<<endl;
-    cin >> nameUser;
-    
-    personas usuario = personas(ageUser,nameUser);
-    usuario.leer();
-    usuario.correr();
-    system("pause");
-    return 0;
-    */
-const int maxOffset = 7;
-	POINT place;
-
-	FreeConsole();
-	srand(GetTickCount());
-
-	while(!GetAsyncKeyState(VK_F8)) {
-		GetCursorPos(&place);
-
-		int direction = (rand() % 4);
-		switch(direction) {
-			case 0:
-				SetCursorPos(place.x + (rand() % maxOffset), place.y + (rand() % maxOffset));
-				break;
-			case 1:
-				SetCursorPos(place.x + (rand() % maxOffset), place.y - (rand() % maxOffset));
-				break;
-			case 2:
-				SetCursorPos(place.x - (rand() % maxOffset), place.y - (rand() % maxOffset));
-				break;
-			case 3:
-			default: // ??
-				SetCursorPos(place.x - (rand() % maxOffset), place.y + (rand() % maxOffset));
-				break;
-		}
-		Sleep(5);
+    // Crear y abrir el archivo en modo binario
+    std::ofstream outFile(filename, std::ios::binary);
+    if (!outFile) {
+        std::cerr << "Error al abrir el archivo para escritura.\n";
+        return 1;
     }
-    return 0;
+
+    // Datos para escribir en el archivo
+    const size_t bufferSize = 1024 * 1024;  // 1 MB de datos por bloque
+    std::vector<char> buffer(bufferSize, '0');  // Inicializar con '0'
+
+    // Escribir bloques de datos hasta alcanzar el tamaño objetivo
+    size_t bytesWritten = 0;
+    while (bytesWritten < targetBytes) {
+        // Calcular el tamaño del bloque de datos a escribir
+        size_t toWrite = std::min(bufferSize, targetBytes - bytesWritten);
+
+        // Escribir el bloque de datos
+        outFile.write(buffer.data(), toWrite);
+        if (!outFile) {
+            std::cerr << "Error al escribir en el archivo.\n";
+            return 1;
+        }
+
+        // Actualizar el número de bytes escritos
+        bytesWritten += toWrite;
+    }
+
+    // Cerrar el archivo
+    outFile.close();
+    std::cout << "Archivo creado y llenado con éxito.\n";
+
     return 0;
 }
