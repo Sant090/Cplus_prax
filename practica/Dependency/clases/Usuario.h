@@ -10,13 +10,14 @@ using namespace std;
 class Usuario
 {
 private:
-
-public:
     int edad;
     string nombre;
     string P_C;
     int antiguedad;    
     bool estado;
+
+public:
+    
     Usuario(int,string, string, int, bool);
     virtual void I_P();
     void informacion();

@@ -9,18 +9,14 @@ using namespace std;
 
 int main(){
 
-    Profesor juan(56,"juan","Electrica", 11, true,1);
-    Estudiante Santiago(18,"santiago","Electrica", 2, true,1);
+    Profesor Jeisson(56,"Jeisson","Electrica", 11, true,1);
+    Estudiante Santiago(18,"Santiago","Electrica", 2, false,2);
 
-    juan.MG_T();
-
+    
     Santiago.MP_A();
-
-
-
     Santiago.informacion();
-    juan.informacion();
-
+    Jeisson.MG_T();
+    Jeisson.informacion();
 
     return 0;
 }
