@@ -28,15 +28,14 @@ Sensor::Sensor(string nombre, int etiqueta, int c):Dispositivo(nombre, etiqueta)
 
 int Sensor::mostrarVoltaje()
 {
+    voltaje = 1.0 + static_cast<int>(rand() % 400) / 9;
     return voltaje;
 }
 
-void Sensor::leerDato()
-{
-    voltaje = 1.0 + static_cast<int>(rand() % 400) / 9;
-}
 
 void Sensor::mostrarInformacion() {
+
+    mostrarVoltaje();
     cout << "Sensor: " << getNombre() 
          << " | Etiqueta: " << getEtiqueta() 
          << " | Voltaje: " << voltaje << "V" << endl;
