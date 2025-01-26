@@ -90,20 +90,18 @@ int main() {
             cout << "Introduce el etiqueta del sensor de voltaje a eliminar: ";
             cin >> sensorEtiqueta;
 
-            // Eliminar el sensor en los controladores
             for (Controlador* c : controladores) {
                     c->delSensor(sensorEtiqueta);
                 }
 
-            // Reemplazar remove_if con un bucle for para eliminar el sensor de la lista de sensores
             bool encontrado = false;
             for (auto it = sensores.begin(); it != sensores.end(); ) { 
                 if ((*it)->getEtiqueta() == sensorEtiqueta) {
-                    delete *it;              // Liberar la memoria del sensor
-                    it = sensores.erase(it); // Eliminar el sensor y actualizar el iterador
-                    encontrado = true;       // Marcar como encontrado
+                    delete *it;              
+                    it = sensores.erase(it); 
+                    encontrado = true;      
                 } else {
-                    ++it; // Avanzar al siguiente elemento
+                    ++it; 
                 }
             }
             cout<<"11111111111111111111111111111111111";
